@@ -1,0 +1,30 @@
+### signup
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "name": "Fulano",
+    "email": "fulano@gmail.com",
+	"password": "123456",
+    "role": "ADMIN"
+}
+
+### login
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email": "fulano@gmail.com",
+	"password": "123456"
+}
+
+### register
+POST http://localhost:3003/band/register
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyN2IwNmVhLTkxMGUtNGExMS04OTMxLTljMmIzOGQyMTIxNyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYxMzA2ODk4MCwiZXhwIjoxNjEzMDY5MjgwfQ.pWdogPOZhdZeK7pYRFz71lXEeTNWTzusv8qhpU0RP3g
+Content-Type: application/json
+
+{
+    "name": "Ciclanos e Beltranos",
+    "music_genre": "Rock",
+	"responsible": "Ciclano da Silva"
+}

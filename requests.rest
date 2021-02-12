@@ -20,7 +20,7 @@ Content-Type: application/json
 
 ### Register Band
 POST http://localhost:3003/band/register
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyN2IwNmVhLTkxMGUtNGExMS04OTMxLTljMmIzOGQyMTIxNyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYxMzA4MTQxMywiZXhwIjoxNjEzMDgxNzEzfQ.1rweVyO6gMJkeNqX9vo03wsyQo9JJyPZlWJQbFW_CcQ
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyN2IwNmVhLTkxMGUtNGExMS04OTMxLTljMmIzOGQyMTIxNyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYxMzE2NDM2MywiZXhwIjoxNjEzMTY0NjYzfQ.I7UdUgrHwVBd_Bkm7zcqs3hpOrDR1BiW4kot4hX5yS0
 Content-Type: application/json
 
 {
@@ -34,13 +34,13 @@ GET http://localhost:3003/band/details/9e47ec4b-9c6c-4576-aa95-b48b2129871
 
 ### Register Show
 POST http://localhost:3003/show/register
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyN2IwNmVhLTkxMGUtNGExMS04OTMxLTljMmIzOGQyMTIxNyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYxMzE1NjAwNiwiZXhwIjoxNjEzMTU2MzA2fQ.-_ghAPI5fhiu_MagE8o7OCggsMJre9iCjeAD7swdAVU
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyN2IwNmVhLTkxMGUtNGExMS04OTMxLTljMmIzOGQyMTIxNyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYxMzE2NDgwMiwiZXhwIjoxNjEzMTY1MTAyfQ.OwXU2J4WZPcOtMqtXpvhf6YWZBNsniywCXkiN0C76tA
 Content-Type: application/json
 
 {
     "week_day": "sexta",
-    "start_time": 13,
-  	"end_time": 14,
+    "start_time": 17,
+  	"end_time": 18,
     "band_id": "9e47ec4b-9c6c-4576-aa95-b48b21298712"
 }
 

@@ -22,6 +22,22 @@ export class ShowBusiness {
          throw new CustomError(406,"Invalid time")
       }
 
+      if (show.week_day !== "sexta" && show.week_day !== "sábado" && show.week_day !== "domingo") {
+         throw new CustomError(406,"Invalid Week Day")
+      }
+
+      const showFromDB = await this.showDatabase.getShowsByDay(show.week_day)
+      
+      showFromDB[0].map((item: { start_time: number; end_time: number }) => {
+         if (show.start_time < item.end_time && show.start_time >= item.start_time) {
+            throw new CustomError(401,"Another event scheduled start")
+         }
+         if (show.end_time > item.start_time && show.end_time <= item.end_time) {
+            throw new CustomError(401,"Another event scheduled end")
+         }
+         return item
+      })
+
       if(!Number.isInteger(show.start_time) || !Number.isInteger(show.end_time)) {
          throw new CustomError(406,"Not integer time")
       }
@@ -29,6 +45,7 @@ export class ShowBusiness {
       if(role.role!== "ADMIN") {
          throw new CustomError(401,"Unauthorized")
       }
+
       await this.showDatabase.createShow(
          id,
          show.week_day,
@@ -42,12 +59,6 @@ export class ShowBusiness {
 
       const showFromDB = await this.showDatabase.getShowsByDay(week_day);
       
-      // Lembrar de função que busca o id entre vários
-      // if (showFromDB[0]===undefined) {
-      //    throw new CustomError(404, "Invalid Id");
-      // }
-      
       return showFromDB[0];
    }
-
 }

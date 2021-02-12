@@ -33,7 +33,6 @@ export class ShowDatabase extends BaseDatabase {
             })
             .into(ShowDatabase.TABLE_NAME);
       } catch (error) {
-         console.log(error)
          throw new CustomError(500, "An unexpected error ocurred");
       }
    }
@@ -50,7 +49,6 @@ export class ShowDatabase extends BaseDatabase {
          return (result)
 
       } catch (error) {
-         console.log(error)
          throw new CustomError(500, "An unexpected error ocurred");
       }
    }

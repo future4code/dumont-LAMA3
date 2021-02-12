@@ -1,5 +1,4 @@
 import { BaseDatabase } from "./BaseDatabase";
-import { User } from "../business/entities/User";
 import { CustomError } from "../business/error/CustomError";
 import { Band } from "../business/entities/Band";
 

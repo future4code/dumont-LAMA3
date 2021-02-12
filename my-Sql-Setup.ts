@@ -1,6 +1,6 @@
 import { BaseDatabase } from "./src/data/BaseDatabase"
 
-export class createTables extends BaseDatabase{
+export class MySqlSetup extends BaseDatabase{
     public async createTable(): Promise<void> {
     try {
         await BaseDatabase.connection.raw(`
@@ -40,3 +40,5 @@ export class createTables extends BaseDatabase{
         } 
     }
 }
+
+new MySqlSetup().createTable()

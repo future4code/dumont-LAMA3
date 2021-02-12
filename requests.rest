@@ -3,10 +3,10 @@ POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-    "name": "Fulano",
-    "email": "fulano@gmail.com",
+    "name": "Ciclano",
+    "email": "ciclano@gmail.com",
 	"password": "123456",
-    "role": "ADMIN"
+    "role": "NORMAL"
 }
 
 ### login
@@ -20,17 +20,21 @@ Content-Type: application/json
 
 ### register
 POST http://localhost:3003/band/register
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyN2IwNmVhLTkxMGUtNGExMS04OTMxLTljMmIzOGQyMTIxNyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYxMzA2ODk4MCwiZXhwIjoxNjEzMDY5MjgwfQ.pWdogPOZhdZeK7pYRFz71lXEeTNWTzusv8qhpU0RP3g
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyN2IwNmVhLTkxMGUtNGExMS04OTMxLTljMmIzOGQyMTIxNyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYxMzA4MTQxMywiZXhwIjoxNjEzMDgxNzEzfQ.1rweVyO6gMJkeNqX9vo03wsyQo9JJyPZlWJQbFW_CcQ
 Content-Type: application/json
 
 {
-    "name": "Ciclanos e Beltranos",
+    "name": "Ciclanos",
     "music_genre": "Rock",
-	"responsible": "Ciclano da Silva"
+  	"responsible": "Ciclano da Silva"
 }
 
 
 ### Get band by id
 GET http://localhost:3003/band/details/:id
 Content-Type: application/json
+
+{
+	"responsible": "Ciclano"
+}
 

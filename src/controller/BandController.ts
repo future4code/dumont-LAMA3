@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { BandInputDTO } from "../business/entities/Band";
-import { LoginInputDTO } from "../business/entities/User";
 import { Authenticator } from "../business/services/Authenticator";
 import { IdGenerator } from "../business/services/IdGenerator";
 import { BandBusiness } from "../business/BandBusiness";
@@ -27,7 +26,7 @@ export class BandController {
 
          await bandBusiness.createBand(input, token);
 
-         res.status(200).send("Banda criada");
+         res.status(200).send({input});
 
       } catch (error) {
          res

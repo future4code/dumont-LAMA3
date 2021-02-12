@@ -7,7 +7,7 @@ export class BandDatabase extends BaseDatabase {
    private static TABLE_NAME = "LAMA_BANDAS";
 
    private static toBandModel(band: any): Band {
-      return new Band(
+      return band && new Band(
          band.id,
          band.name,
          band.music_genre,
@@ -40,10 +40,11 @@ export class BandDatabase extends BaseDatabase {
          const result = await BaseDatabase.connection
             .select("*")
             .from(BandDatabase.TABLE_NAME)
-            .where({ id });
-
+            .where(id);
          return BandDatabase.toBandModel(result[0]);
+         // return (result)
       } catch (error) {
+         console.log(error)
          throw new CustomError(500, "An unexpected error ocurred");
       }
    }

@@ -1,30 +1,31 @@
 import { Request, Response } from "express";
-import { BandInputDTO } from "../business/entities/Band";
+import { ShowInputDTO } from "../business/entities/Show";
 import { Authenticator } from "../business/services/Authenticator";
 import { IdGenerator } from "../business/services/IdGenerator";
-import { BandBusiness } from "../business/BandBusiness";
-import { BandDatabase } from "../data/BandDatabase";
+import { ShowBusiness } from "../business/ShowBusiness";
+import { ShowDatabase } from "../data/ShowDatabase";
 
-const bandBusiness = new BandBusiness(
+const showBusiness = new ShowBusiness(
    new IdGenerator(),
    new Authenticator(),
-   new BandDatabase()
+   new ShowDatabase()
 );
 
-export class BandController {
+export class ShowController {
    async register(req: Request, res: Response) {
       try {
 
-         const input: BandInputDTO = {
+         const input: ShowInputDTO = {
             id: req.body.id,
-            name: req.body.name,
-            music_genre: req.body.music_genre,
-            responsible: req.body.responsible
+            week_day: req.body.week_day,
+            start_time: req.body.start_time,
+            end_time: req.body.end_time,
+            band_id: req.body.band_id
          }
 
          const token = req.headers.authorization as any
 
-         await bandBusiness.createBand(input, token);
+         await showBusiness.createShow(input, token);
 
          res.status(200).send({input});
 
@@ -35,13 +36,13 @@ export class BandController {
       }
    }
 
-   async getDetailsById(req: Request, res: Response) {
+   async getDetailsByDay(req: Request, res: Response) {
 
       try {
 
-         const id = req.params as any
+         const {week_day} = req.params as any
          
-         const result = await bandBusiness.getDetailsById(id);
+         const result = await showBusiness.getDetailsByDay(week_day);
          
          res.status(200).send({result});
 

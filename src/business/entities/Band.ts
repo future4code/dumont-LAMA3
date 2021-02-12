@@ -1,5 +1,3 @@
-import { CustomError } from "../error/CustomError";
-
 export class Band {
    constructor(
       public readonly id: string,

@@ -32,16 +32,12 @@ export class BandBusiness {
    async getDetailsById(id: string) {
 
       const bandFromDB = await this.bandDatabase.getBandById(id);
-
+      
       // Lembrar de função que busca o id entre vários
-      if (id !== bandFromDB.id) {
+      if (bandFromDB===undefined) {
          throw new CustomError(404, "Invalid Id");
       }
-
-      if (!id) {
-         throw new CustomError(404, "The id is required");
-      }
-
+      
       return bandFromDB;
    }
 

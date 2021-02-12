@@ -36,16 +36,16 @@ export class BandDatabase extends BaseDatabase {
       }
    }
 
-   // public async getBandById(id: string): Promise<Band> {
-   //    try {
-   //       const result = await BaseDatabase.connection
-   //          .select("*")
-   //          .from(BandDatabase.TABLE_NAME)
-   //          .where({ id });
+   public async getBandById(id: string): Promise<Band> {
+      try {
+         const result = await BaseDatabase.connection
+            .select("*")
+            .from(BandDatabase.TABLE_NAME)
+            .where({ id });
 
-   //       return BandDatabase.toBandModel(result[0]);
-   //    } catch (error) {
-   //       throw new CustomError(500, "An unexpected error ocurred");
-   //    }
-   // }
+         return BandDatabase.toBandModel(result[0]);
+      } catch (error) {
+         throw new CustomError(500, "An unexpected error ocurred");
+      }
+   }
 }

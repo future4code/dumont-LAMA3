@@ -28,3 +28,9 @@ Content-Type: application/json
     "music_genre": "Rock",
 	"responsible": "Ciclano da Silva"
 }
+
+
+### Get band by id
+GET http://localhost:3003/band/details/:id
+Content-Type: application/json
+

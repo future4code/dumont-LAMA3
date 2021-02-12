@@ -5,7 +5,7 @@
    "scripts": {
       "my-sql-setup": "tsc && node ./build/my-Sql-Setup.js",
       "start": "tsc && node ./build/src/index.js",
-      "dev": "clear && ts-node-dev ./src/index.ts",
+      "dev": "ts-node-dev ./src/index.ts",
       "test": "jest"
    },
    "author": "Labenu_",

@@ -29,25 +29,20 @@ export class BandBusiness {
       );
    }
 
-   // async getUserByEmail(user: LoginInputDTO) {
+   async getDetailsById(id: string) {
 
-   //    const userFromDB = await this.userDatabase.getUserByEmail(user.email);
+      const bandFromDB = await this.bandDatabase.getBandById(id);
 
-   //    const passwordIsCorrect = await this.hashManager.compare(
-   //       user.password,
-   //       userFromDB.password
-   //    );
+      // Lembrar de função que busca o id entre vários
+      if (id !== bandFromDB.id) {
+         throw new CustomError(404, "Invalid Id");
+      }
 
-   //    const accessToken = this.authenticator.generateToken({
-   //       id: userFromDB.id,
-   //       role: userFromDB.role
-   //    });
+      if (!id) {
+         throw new CustomError(404, "The id is required");
+      }
 
-   //    if (!passwordIsCorrect) {
-   //       throw new CustomError(401, "Invalid credentials!");
-   //    }
-
-   //    return accessToken;
-   // }
+      return bandFromDB;
+   }
 
 }

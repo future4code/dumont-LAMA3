@@ -35,24 +35,21 @@ export class BandController {
       }
    }
 
-   // async login(req: Request, res: Response) {
+   async getDetailsById(req: Request, res: Response) {
 
-   //    try {
+      try {
 
-   //       const loginData: LoginInputDTO = {
-   //          email: req.body.email,
-   //          password: req.body.password
-   //       };
+         const id = req.params as any
 
-   //       const token = await userBusiness.getUserByEmail(loginData);
+         const result = await bandBusiness.getDetailsById(id );
 
-   //       res.status(200).send({ token });
+         res.status(200).send({result});
 
-   //    } catch (error) {
-   //       res
-   //          .status(error.statusCode || 400)
-   //          .send({ error: error.message });
-   //    }
-   // }
+      } catch (error) {
+         res
+            .status(error.statusCode || 400)
+            .send({ error: error.message });
+      }
+   }
 
 }

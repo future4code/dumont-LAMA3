@@ -1,7 +1,5 @@
-import { UserInputDTO, LoginInputDTO } from "./entities/User";
 import { BandDatabase } from "../data/BandDatabase";
 import { IdGenerator } from "./services/IdGenerator";
-import { HashManager } from "./services/HashManager";
 import { Authenticator } from "./services/Authenticator";
 import { CustomError } from "./error/CustomError";
 import { BandInputDTO } from "./entities/Band";

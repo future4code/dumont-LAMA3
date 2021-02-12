@@ -3,7 +3,7 @@
    "version": "1.0.0",
    "main": "index.js",
    "scripts": {
-      "my-sql-setup": "tsc && node ./build/src/my-Sql-Setup.js",
+      "my-sql-setup": "tsc && node ./build/my-Sql-Setup.js",
       "start": "tsc && node ./build/src/index.js",
       "dev": "clear && ts-node-dev ./src/index.ts",
       "test": "jest"
@@ -29,6 +29,7 @@
       "@types/knex": "^0.16.1",
       "@types/uuid": "^8.0.0",
       "ts-jest": "^26.1.0",
+      "ts-node-dev": "^1.1.1",
       "typescript": "^3.9.6"
    }
 }

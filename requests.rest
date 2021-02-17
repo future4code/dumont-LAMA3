@@ -34,7 +34,7 @@ GET http://localhost:3003/band/details/9e47ec4b-9c6c-4576-aa95-b48b2129871
 
 ### Register Show
 POST http://localhost:3003/show/register
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyN2IwNmVhLTkxMGUtNGExMS04OTMxLTljMmIzOGQyMTIxNyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYxMzE2NDgwMiwiZXhwIjoxNjEzMTY1MTAyfQ.OwXU2J4WZPcOtMqtXpvhf6YWZBNsniywCXkiN0C76tA
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM4Zjk2ODYxLWI3ZjMtNDFmMy04MmEyLTg0NjgxNzkxYTA5OSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYxMzE3MTU4MywiZXhwIjoxNjEzMTcyNzgzfQ.0XUEDZwGLsL8iB_QvMhUkE-AWv11UyU5KyFNkLv2cCo
 Content-Type: application/json
 
 {

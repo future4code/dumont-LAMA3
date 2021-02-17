@@ -16,6 +16,18 @@ export class UserBusiness {
 
    async createUser(user: UserInputDTO) {
 
+      if(!user.email || !user.name || !user.password || !user.role){
+         throw new CustomError(417, "invalid input to signUp ");
+      }
+
+      if(user.email.indexOf("@") === -1){
+         throw new CustomError(417, "invalid email format");
+      }
+
+      if(user.password.length < 6){
+         throw new CustomError(417, "Password should have more than 6 digitis");
+      }
+
       const id = this.idGenerator.generate();
 
       const hashPassword = await this.hashManager.hash(user.password);
@@ -51,7 +63,7 @@ export class UserBusiness {
       });
 
       if (!passwordIsCorrect) {
-         throw new CustomError(401, "Invalid credentials!");
+         throw new CustomError(417, "Invalid password");
       }
 
       return accessToken;

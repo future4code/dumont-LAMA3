@@ -10,7 +10,7 @@ export class User {
    ) { }
 
 
-   static stringToUserRole(input: string): UserRole {
+  public static stringToUserRole(input: string): UserRole {
       switch (input) {
          case "NORMAL":
             return UserRole.NORMAL;
@@ -20,9 +20,35 @@ export class User {
             throw new CustomError(422,"Invalid user role");
       }
    }
+
+
+   public static toUserModel(user: any): User {
+      return new User(
+         user.id,
+         user.name,
+         user.email,
+         user.password,
+         User.stringToUserRole(user.role)
+      );
+
+   }
+      
+
+
+
+
+   
 }
 
 export interface UserInputDTO {
+   email: string;
+   password: string;
+   name: string;
+   role: string;
+}
+
+export interface toUserModel {
+   id:string;
    email: string;
    password: string;
    name: string;

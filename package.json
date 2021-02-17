@@ -6,7 +6,7 @@
       "my-sql-setup": "tsc && node ./build/my-Sql-Setup.js",
       "start": "tsc && node ./build/src/index.js",
       "dev": "ts-node-dev ./src/index.ts",
-      "test": "jest"
+      "test": "echo \"Starting tests...\" && jest"
    },
    "author": "Labenu_",
    "license": "ISC",

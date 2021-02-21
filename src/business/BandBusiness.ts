@@ -3,6 +3,7 @@ import { IdGenerator } from "./services/IdGenerator";
 import { Authenticator } from "./services/Authenticator";
 import { CustomError } from "./error/CustomError";
 import { BandInputDTO } from "./entities/Band";
+import { UserRole } from "./entities/User";
 
 export class BandBusiness {
 
@@ -14,13 +15,20 @@ export class BandBusiness {
 
    async createBand(band: BandInputDTO, token: string) {
 
-      const id = this.idGenerator.generate();
+      
 
-      const role = this.authenticator.getData(token)
+      if(!band.name || !band.music_genre || !band.responsible){
+         throw new CustomError(417, "invalid input to registerBand");
+      }
 
-      if(role.role!== "ADMIN") {
+      const tokenData = this.authenticator.getData(token)
+
+      if(tokenData.role!== "ADMIN") {
          throw new CustomError(401,"Unauthorized")
       }
+
+      const id = this.idGenerator.generate();
+
       await this.bandDatabase.createBand(
          id,
          band.name,
@@ -32,8 +40,12 @@ export class BandBusiness {
    async getDetailsById(id: string) {
 
       const bandFromDB = await this.bandDatabase.getBandById(id);
+
+      if(!id){
+         throw new CustomError(404, "Invalid Id");
+      }
       
-      // Lembrar de função que busca o id entre vários
+     
       if (bandFromDB===undefined) {
          throw new CustomError(404, "Invalid Id");
       }

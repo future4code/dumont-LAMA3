@@ -47,6 +47,7 @@ export class UserDatabase extends BaseDatabase {
 
          return UserDatabase.toUserModel(result[0]);
       } catch (error) {
+         
          throw new CustomError(500, "An unexpected error ocurred");
       }
    }
